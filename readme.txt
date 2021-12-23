@@ -3,7 +3,7 @@ Contributors: sujaypawar, wpcrafter
 Tags: woocommerce, funnel builder, sales funnels, elementor, beaver builder
 Requires at least: 5.4
 Tested up to: 5.8.1
-Stable tag: 1.7.1
+Stable tag: 1.7.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -125,6 +125,12 @@ Glad you asked! Most normal users have less than 3 funnels on a single website, 
 5. Easily edit anything with your page builder.
 
 == Changelog ==
+
+= Version 1.7.3 - Tuesday, 21th December 2021 =
+* Improvement: Improved Starter templates compatibility.
+
+= Version 1.7.2 - Tuesday, 14th December 2021 =
+* Improvement: Starter templates compatibility added. 
 
 = Version 1.7.1 - Monday, 20th September 2021 =
 * Fix: Vertical navigation in step and flow setting was not working for RTL and translation.

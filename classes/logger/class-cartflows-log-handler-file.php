@@ -144,10 +144,14 @@ class Cartflows_Log_Handler_File extends Cartflows_Log_Handler {
 		if ( $file ) {
 			if ( ! file_exists( $file ) ) {
 				$temphandle = @fopen( $file, 'w+' ); // @codingStandardsIgnoreLine.
-				@fclose( $temphandle ); // @codingStandardsIgnoreLine.
 
-				if ( defined( 'FS_CHMOD_FILE' ) ) {
-					@chmod( $file, FS_CHMOD_FILE ); // @codingStandardsIgnoreLine.
+				if ( is_resource( $temphandle ) ) {
+
+					@fclose( $temphandle ); // @codingStandardsIgnoreLine.
+
+					if ( defined( 'FS_CHMOD_FILE' ) ) {
+						@chmod( $file, FS_CHMOD_FILE ); // @codingStandardsIgnoreLine.
+					}
 				}
 			}
 

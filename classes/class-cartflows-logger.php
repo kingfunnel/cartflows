@@ -62,6 +62,15 @@ class Cartflows_Logger {
 	}
 
 	/**
+	 * Enable log.
+	 *
+	 * @since 1.7.2
+	 */
+	public function is_log_enable() {
+		return apply_filters( 'cartflows_enable_log', 'enable' );
+	}
+
+	/**
 	 * Write log
 	 *
 	 * @param string $message log message.
@@ -70,9 +79,7 @@ class Cartflows_Logger {
 	 */
 	public function log( $message, $level = 'info' ) {
 
-		$enable_log = apply_filters( 'cartflows_enable_log', 'enable' );
-
-		if ( 'enable' === $enable_log &&
+		if ( 'enable' === $this->is_log_enable() &&
 			is_a( $this->logger, 'CartFlows_WC_Logger' ) &&
 			did_action( 'plugins_loaded' )
 		) {
@@ -90,7 +97,7 @@ class Cartflows_Logger {
 	 */
 	public function import_log( $message, $level = 'info' ) {
 
-		if ( defined( 'WP_DEBUG' ) &&
+		if ( 'enable' === $this->is_log_enable() && defined( 'WP_DEBUG' ) &&
 			WP_DEBUG &&
 			is_a( $this->logger, 'CartFlows_WC_Logger' ) &&
 			did_action( 'plugins_loaded' )
@@ -109,7 +116,7 @@ class Cartflows_Logger {
 	 */
 	public function migration_log( $message, $level = 'info' ) {
 
-		if ( defined( 'WP_DEBUG' ) &&
+		if ( 'enable' === $this->is_log_enable() && defined( 'WP_DEBUG' ) &&
 			WP_DEBUG &&
 			is_a( $this->logger, 'CartFlows_WC_Logger' ) &&
 			did_action( 'plugins_loaded' )
@@ -128,7 +135,7 @@ class Cartflows_Logger {
 	 */
 	public function sync_log( $message, $level = 'info' ) {
 
-		if ( defined( 'WP_DEBUG' ) &&
+		if ( 'enable' === $this->is_log_enable() && defined( 'WP_DEBUG' ) &&
 			WP_DEBUG &&
 			is_a( $this->logger, 'CartFlows_WC_Logger' ) &&
 			did_action( 'plugins_loaded' )
